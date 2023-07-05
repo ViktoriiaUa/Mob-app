@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Rubik:wght@300;400;600&display=swap');
+@import url('./font/icons/style.css');
+
+:root {
+      --transition: all 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comfortaa', bold;
+  background-color: #dfdfdf;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+/* тіло */
+.mobile {
+  width: 350px;
+  height: 735px;
+  background-color: #edf8fd;
+  border-radius: 20px;
+  box-shadow: -5px 5px 10px rgb(0,0,0,25%);
+  display: grid;
+  grid-template-rows: 48px 1fr 62px;
+  color: #920031;
+  overflow: hidden;
+}
+
+/* вміст */
+.top {
+  width: 350px;
+  height: 30px;
+  padding-top: 5px;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+  background-color: #fafafa;
+}
+
+
+/* блоки кімнат */
+.mobile__content {
+  margin-bottom: 10px;
+  padding-top: 30px;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 10px 15px;
+  padding-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 15px;
+}
+.room {
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: 130px 36px;
+  align-content: center;
+  box-shadow: rgba(71, 39, 31, 0.10) 0px 6px 12px -2px, rgba(0, 0, 0, 0.4) 0px 3px 7px -3px;
+  font-size: 14px;
+  text-align: center;
+  background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+  border-radius: 13px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  color:  #ffff;
+  opacity: 0.6;
+}
+.room:hover {
+  opacity: 1;
+}
+/* .room.selected { */
+  padding-top: -50px;
+  background-image: linear-gradient(to linear, #d09690 0%, #c71d6a 195%);
+  color: #ffff;
+  font-weight: 800;
+  opacity: 0.6;
+/* } */
+
+.room.selected i {
+  opacity: 0.9;
+}
+.room i {
+  align-self: center;
+  font-size: 5em;
+  opacity: 0.9;
+}
+/* кінець блоків */
+
+
+
+
+
+/* компоненти меню */
+.selectbox {
+  cursor: pointer;
+  width: 165px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 25px;
+  z-index: 1;
+}
+.selectbox__selected {
+  font-size: 22px;
+  margin-bottom: 0px;
+  padding-bottom: 30px;
+  font-weight: 800;
+  position: relative;
+  color: #9c0135;
+  background-color: #edf8fd;
+  z-index: 1;
+}
+.selectbox.open .ic_arrow{
+  transform: rotate(-180deg);
+}
+
+.ic_arrow {
+  display: inline-block;
+  font-size: 0.5em;
+  font-weight: 800;
+  transform: rotate(0deg);
+  transition: var(--transition);
+}
+
+.selectbox.open .selectbox__list {
+  top: 60%;
+  max-height: 250px;
+  text-align: left;
+  padding: 20px 0 20px 30px;
+  
+}
+
+.selectbox__list {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  max-height: 0;
+  overflow: hidden;
+  border-radius: 5px;
+  font-weight: 700;
+  background-color:#edf8fd;
+  transition: var(--transition);
+}
+.selectbox__selected:hover {
+  opacity: 0.8;
+}
+.selectbox__item {
+cursor: pointer;
+color:#af4669;
+}
+.selectbox__item.selected,
+.selectbox__item:hover {
+  color: #46454a;
+  font-weight: 800;
+}
+
+.selectbox__item:not(:last-child) {
+  margin-bottom: 5px;
+}
+/* end menu */
+
+.settings__screen-title{
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 600;
+  color: #920031;
+}
+
+
+
+
+/* Кнопка регулювання температури */
+.temperature-button {
+  cursor: pointer;
+  width: 242px;
+  height: 242px;
+  margin: 12px auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+}
+.temperature-button__info {
+  position: relative;
+  font-size: 32px;
+  width: 60%;
+  height: 60%;
+  border-radius: 60%;
+  background-color: #edf8fd;
+  box-shadow: 0 0 5px #71707598;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+}
+.temperature-button__info::before{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 4%;
+  bottom: 4%;
+  border-radius:100%;
+  border: 1px solid #46454a69;
+
+}
+.dots-box {
+  position: absolute;
+  transform: rotate(5deg);
+  transform-origin: center;
+  top:0;
+  left: 0;
+  right: 0;
+}
+.dots,
+.line,
+.line-active,
+.round,
+.seporate-lines,
+.seporate-dots {
+  fill: transparent;
+  stroke:rgba(168, 166, 166, 0.377);
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-dasharray: 0 21;
+}
+.line,
+.line-active,
+.round {
+  stroke-dasharray: 276 276;
+  stroke-width: 1px;
+  transform: rotate(48deg);
+  transform-origin: center;
+}
+.line-active{
+  stroke: #920031b9;
+  stroke-dasharray: 54 276; /*від 54 до 276*/
+}
+.round {
+  stroke-width: 6px;
+  stroke-dasharray: 0 276;
+  transform: rotate(-240deg);  /* від -240 до 49 */
+  stroke: #920031bd;
+}
+.seporate-lines,
+.seporate-dots {
+stroke:#edf8fd;
+transform: rotate(60deg);
+transform-origin: center;
+}
+.seporate-dots{
+stroke-dasharray: 40 313;
+}
+.seporate-lines {
+  stroke-dasharray: 53 276;
+  transform: rotate(49deg);
+}
+
+.settings__screen-title{
+  margin-top: 35px;
+  margin-bottom: 5px;
+}
+
+
+
+/* екрани налаштувань */
+.settings__screen {
+  display: none;
+}
+.settings__screen.selected {
+display: block;
+}
+.settings__screen-icon {
+  text-align: center;
+  font-size: 30px;
+  color: #46454a;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+
+
+
+/* СЛАЙДЕР СВІТЛО */
+.slider {
+cursor: pointer;
+width: 100px;
+height: 263px;
+padding-top: 8px;
+margin: 0 auto;
+background-color:#dcdbdd9a;
+border-radius: 18px;
+overflow: hidden;
+position: relative;
+}
+.slider__progress {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+min-height: 30px;
+height: 25%;
+}
+.slider__progress span {
+  pointer-events: none;
+}
+
+
+/* кнопка під слайдером */
+.sweech {
+cursor: pointer;
+width: 60px;
+height: 28px;
+border-radius: 60px;
+background: #cfcfd188;
+margin: 30px auto 0;
+position: relative;
+}
+
+.sweech.off div {
+left: 0;
+background: #b3b2b47a;
+}
+
+.sweech div {
+  position: absolute;
+  left: 52%;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+  background: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+  transition: var(--transition);
+}
+
+
+
+/* КНОПКА ВИКЛ-ВКЛ */
+.power{
+  background: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+  color: #dfdfdf;
+  width: 44px;
+height: 44px;
+border-radius: 44px;
+font-size: 24px;
+display: grid;
+align-items: center;
+padding-bottom: 1px;
+margin: -5px auto;
+}
+.power:hover {
+  opacity: 0.8;
+}
+.power.off{
+  background: #aeadaf98;
+}
+.power-label {
+  color: #757479e0;
+  text-align: center;
+  margin-top: 17px;
+  font-size: 14px;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+.save-button {
+  cursor: pointer;
+  background: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+  color: white;
+  width: 280px;
+  margin: 10px auto 0;
+  border-radius: 110px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  padding: 13px;
+  line-height: 1.2;
+}
+.save-button:hover {
+  opacity: 0.8;
+}
+
+
+/* ОПЦІЇ КІМНАТ  */
+.settings {
+  display: none;
+}
+.settings__tabs {
+  padding: 0 12px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 98px;
+  grid-gap: 12px;
+}
+.tab {
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  box-shadow: rgba(71, 39, 31, 0.10) 0px 6px 12px -2px, rgba(0, 0, 0, 0.4) 0px 3px 7px -3px;
+  font-size: 12px;
+  text-align: center;
+  background: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+  border-radius: 13px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  color:  #ffff;
+  opacity: 0.6;
+}
+
+.tab.selected {
+  background-image: linear-gradient(to linear, #d09690 0%, #c71d6a 190%);
+  color: #ffff;
+  font-weight: 600;
+  opacity: 1.2;
+}
+.tab.selected i {
+  opacity: 1;
+}
+.tab i {
+  align-self: center;
+  align-content: center;
+  font-size: 3em;
+  opacity: 0.9;
+}
+
+
+
+
+
+
+/* footer */
+.mobi__bottom {
+  height: 48px;
+  position: fixed;
+  align-self: flex-end;
+  justify-self: flex-end;
+  z-index: 2;
+}
+
+
+

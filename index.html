@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title> Smart Home - мобільний додаток </title>
+</head>
+
+
+<body>
+    <div class="mobile">
+      <!-- HEADER -->
+      <div class="top">
+        <img src="./img/top.svg">
+                                
+      <div class="mobile__content">
+         <div id="selectbox" class="selectbox">
+          <div class="selectbox__selected">
+            <span>Усі кімнати</span>
+                  <i class="ic_arrow" style="color: #aa4b41;"></i>
+                 </div>
+                       <div class="selectbox__list">
+                <div data-room="all" class="selectbox__item selected">Дім</div>
+                <div data-room="livingroom" class="selectbox__item">Вітальня</div>
+                <div data-room="bedroom" class="selectbox__item">Спальня</div>
+                <div data-room="kitchen" class="selectbox__item">Кухня</div>
+                <div data-room="bathroom" class="selectbox__item">Ванна</div>
+                <div data-room="studio" class="selectbox__item">Кабінет</div>
+                <div data-room="washingroom" class="selectbox__item">Вбиральня</div>
+          </div>
+        </div>
+         <!-- блоки з кімнатами -->
+    <div id="rooms" class="rooms">
+              <div data-room="livingroom" class="room selected">
+                       <i class="ic_livingroom"></i>
+                       <span>Вітальня</span></div>
+              <div data-room="bedroom" class="room">
+                       <i class="ic_bedroom"></i>
+                       <span>Спальня</span></div>
+              <div data-room="kitchen" class="room">
+                       <i class="ic_kitchen"></i>
+                       <span>Кухня</span></div>
+              <div data-room="bathroom" class="room">
+                       <i class="ic_bathroom"></i>
+                       <span>Ванна</span></div>
+              <div data-room="studio" class="room">
+                       <i class="ic_studio"></i>
+                       <span>Кабінет</span></div>
+              <div data-room="washingroom" class="room">
+                       <i class="ic_washingroom"></i>
+                       <span>Вбиральня</span></div>
+    </div>
+<!-- ОПЦІЇ КІМНАТ - SETTINGS ROOM -->
+   <div id="settings" class="settings">
+      <div id="settings-tabs" class="settings__tabs">
+        <div data-type="temperature" class="tab selected">
+            <i class="ic_temperature"></i>
+              <span>Температура</span></div>
+         <div data-type="lights" class="tab">
+            <i class="ic_lights"></i>
+              <span>Світло</span></div>
+         <div data-type="humidity" class="tab">
+            <i class="ic_humidity"></i>
+              <span>Вологість</span></div>
+  </div> 
+       <div id="settings-panel" class="settings__screens">
+        <div data-type="temperature" class="settings__screen selected">
+          <div class="settings__screen-title">Температура</div>
+          <div id="temperature-btn" class="temperature-button">
+              <svg class="dots-box" viewBox="0 0 113 113">
+                <circle class="dots" r="50" cx="50%" cy="50%"></circle>
+                <circle class="line" r="44" cx="50%" cy="50%"></circle>
+                <circle id="temperature-line" class="line-active" r="44" cx="50%" cy="50%"></circle>
+                <circle class="seporate-lines" r="44" cx="50%" cy="50%"></circle>
+                <circle id="temperature-round" class="round" r="44" cx="50%" cy="50%"></circle>
+                <circle class="seporate-dots" r="50" cx="50%" cy="50%"></circle>
+              </svg>
+              <div class="temperature-button__info">
+                <span id="temperature">16</span>
+                <span>°C</span>
+              </div>
+          </div>
+          <div id="power" class="power">
+            <i class="ic_power"></i>
+          </div>
+          <div class="power-label">Виключити</div>
+          <div id="save-temperature" class="save-button">Встановити температуру</div>
+        </div>
+  <div data-type="lights" class="settings__screen">
+          <div class="settings__screen-title">Яскравість</div>
+          <div class="settings__screen-icon">
+            <i class="ic_sun"></i>
+          </div>
+          <div class="slider">
+            <div id="lights-slider" class="slider__progress">
+             <span>35</span>%
+            </div>
+          </div>
+          <div id="lights-power" class="sweech">
+            <div></div>
+        </div>
+        </div>
+  <div data-type="humidity" class="settings__screen"></div>
+        <div class="settings__screen-title">Вологість</div>
+        <div class="settings__screen-icon">
+          <i class="ic_humidity"></i>
+        </div>
+        <div class="slider">
+          <div id="humidity-slider" class="slider__progress">
+            <span>25</span>%
+          </div>
+        </div>
+        <div id="humidity-power" class="sweech">
+          <div></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FOOTER -->
+      <div class="mobi__bottom">
+        <img src="./img/bottom.svg">
+   </div>
+   </div>
+    </div>
+  </div>
+<script src="script.js"></script>  
+</body>
+</html>
